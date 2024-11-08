@@ -27,6 +27,8 @@ bool isNumber(const std::string& input)
 
 int main()
 {
+    int min = -255, max = 255, answer = 0;
+
     // welcome message
     std::cout << "Welcome to Numeber Guesser 1.0" << std::endl;
     std::cout << "This program tries to guess the number you have in mind" << std::endl;
@@ -38,8 +40,26 @@ int main()
     if (!isNumber(input)) {
         return 1;
     }
+    answer = std::stoi(input);
+    input = "0";
 
-    std::cout << input << std::endl;
+    int guess = randomInt(min, max);
+    while(guess != answer) {
+        std::cout << "\rIs your number " << guess << "?";
+        std::cin >> input;
+
+        if (input == "h") {
+            min = guess + 1;
+        } else if (input == "l") {
+            max = guess - 1;
+        } else {
+            std::cout << "Say either 'h' for higher, or 'l' for lower" << std::endl;
+        }
+
+        guess = randomInt(min, max);
+    }
+
+    std::cout << "AH-HA! Your number is " << guess << std::endl;
 
     return 0;
 }
