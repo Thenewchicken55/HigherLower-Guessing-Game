@@ -39,6 +39,7 @@ int main()
     }
     answer = std::stoi(input);
 
+    // guess numbers
     int guess = randomInt(min, max);
     while(guess != answer) {
         std::cout << "Is your number " << guess << "?";
@@ -55,6 +56,7 @@ int main()
         guess = randomInt(min, max);
     }
 
+    // confirm the right answer
     std::cout << "AH-HA! I got it now! Is your number " << guess << "? (y/n)";
     while(true) {
         std::cin >> input;
@@ -68,5 +70,6 @@ int main()
             std::cout << "y or n?" << std::endl;
         }
     }
+
     return 0;
 }
