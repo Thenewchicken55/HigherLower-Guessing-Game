@@ -1,9 +1,5 @@
 #include <iostream>
-#include <array>
 #include <string_view>
-#include <thread>
-#include <chrono>
-#include <random>
 
 int randomInt(int min, int max) {
     srand(time(0));
