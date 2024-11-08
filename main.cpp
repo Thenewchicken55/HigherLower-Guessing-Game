@@ -6,6 +6,7 @@
 #include <random>
 
 int randomInt(int min, int max) {
+    srand(time(0));
     int range = max - min + 1;
     return rand() % range + min;
 }
