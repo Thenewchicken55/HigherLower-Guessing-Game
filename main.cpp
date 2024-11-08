@@ -27,10 +27,19 @@ bool isNumber(const std::string& input)
 
 int main()
 {
-    // Welcome message
+    // welcome message
     std::cout << "Welcome to Numeber Guesser 1.0" << std::endl;
     std::cout << "This program tries to guess the number you have in mind" << std::endl;
     std::cout << "Let's start, please pick a number between [-255, and 255]" << std::endl;
+
+    // get input
+    std::string input;
+    std::cin >> input;
+    if (!isNumber(input)) {
+        return 1;
+    }
+
+    std::cout << input << std::endl;
 
     return 0;
 }
