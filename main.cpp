@@ -42,11 +42,10 @@ int main()
         return 1;
     }
     answer = std::stoi(input);
-    input = "0";
 
     int guess = randomInt(min, max);
     while(guess != answer) {
-        std::cout << "\rIs your number " << guess << "?";
+        std::cout << "Is your number " << guess << "?";
         std::cin >> input;
 
         if (input == "h") {
@@ -60,7 +59,18 @@ int main()
         guess = randomInt(min, max);
     }
 
-    std::cout << "AH-HA! Your number is " << guess << std::endl;
-
+    std::cout << "AH-HA! I got it now! Is your number " << guess << "? (y/n)";
+    while(true) {
+        std::cin >> input;
+        if (input == "y") {
+            std::cout << "I win!" << std::endl;
+            break;
+        } else if (input == "n") {
+            std::cout << "You are cheating!" << std::endl;
+            break;
+        } else {
+            std::cout << "y or n?" << std::endl;
+        }
+    }
     return 0;
 }
